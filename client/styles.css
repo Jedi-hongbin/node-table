@@ -1,0 +1,375 @@
+body,
+div,
+p {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  padding-top: 4rem;
+  overflow-x: hidden;
+}
+
+/* src 不设置的时候忽悠默认边框 */
+img[src=""] {
+  opacity: 0;
+  display: none;
+}
+
+.scroll-bar::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 5px; /*高宽分别对应横竖滚动条的尺寸*/
+  height: 1px;
+}
+
+.scroll-bar::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 5px;
+  background-color: skyblue;
+  background-image: -webkit-linear-gradient(
+    45deg,
+    #92a2fca9 25%,
+    rgb(182, 247, 229) 75%
+  );
+}
+
+.scroll-bar::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #f4f2f2;
+  border-radius: 5px;
+}
+
+main {
+  display: flex;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.justifyCenter {
+  display: flex;
+  align-items: center;
+}
+
+.between-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
+  height: 4rem;
+  padding: 0 1rem;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.721);
+  display: flex;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(0.5rem);
+  box-shadow: 0 2px 5px #ccc;
+  overflow: hidden;
+}
+.pointerIcon {
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+.pointerIcon:hover {
+  transform: scale(1.1);
+}
+
+.container {
+  width: 4rem;
+  height: 100%;
+  position: relative;
+  padding-top: 0.5rem;
+}
+.wrapper {
+  width: 2rem;
+  height: 2rem;
+  background-color: #51f;
+  border-radius: 0.1rem;
+  position: absolute;
+  animation: rotateBox linear 10s infinite;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.507);
+}
+@keyframes rotateBox {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  20% {
+    border-radius: 0.5rem;
+  }
+  80% {
+    border-radius: 0.3rem;
+  }
+  100% {
+    transform: rotateZ(360deg);
+    border-radius: 0.1rem;
+  }
+}
+.other {
+  transform: translate(1.5rem, 1rem) rotateZ(120deg);
+  animation: otherRotateBox cubic-bezier(0.94, 0.95, 0.06, 0.9) 10s infinite;
+}
+
+@keyframes otherRotateBox {
+  0% {
+    transform: translate(1.5rem, 1rem) rotateZ(0deg);
+  }
+  20% {
+    border-radius: 0.2rem;
+  }
+  60% {
+    border-radius: 0.5rem;
+  }
+  100% {
+    transform: translate(1.5rem, 1rem) rotateZ(360deg);
+    border-radius: 0.1rem;
+  }
+}
+.textShadow {
+  text-shadow: 1px 1px 2px #666;
+}
+.tableList {
+  box-shadow: 2px 3px 5px #ccc;
+  border-radius: 0.5rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  min-width: 30rem;
+  max-width: 50rem;
+  padding: 0.5rem;
+  padding-left: 1rem;
+}
+.tableList > .between-center > p {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+.tableList > li {
+  list-style-type: none;
+  cursor: pointer;
+  padding: 0.2rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  overflow: scroll;
+}
+.insertData {
+  background: linear-gradient(225deg, #e6e6e6, #ffffff);
+  box-shadow: -44px 44px 83px #bdbdbd, 44px -44px 83px #ffffff;
+  border-radius: 1rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  width: 30vw;
+  min-width: 25rem;
+  max-width: 30rem;
+  margin-left: auto;
+  margin-top: 10rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 8rem;
+  transition: transform 0.3s linear;
+  transform: translateX(50%);
+}
+
+.insertData > form {
+  flex: 1;
+  display: none;
+  flex-direction: column;
+}
+.insertData > .title {
+  width: 6rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+#tableRadio {
+  text-transform: capitalize;
+  font-weight: 700;
+}
+.insertDataTableWrap {
+  height: 20rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+#insertDataTable {
+  flex: 1;
+  margin-bottom: 1rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(225deg, #e6e6e6, #ffffff);
+  box-shadow: -5px 5px 10px #a8a8a8, 5px -5px 10px #ffffff;
+  display: flex;
+  padding: 1rem 1rem 5rem 1rem;
+  flex-direction: column;
+  /* overflow-y: scroll; */
+}
+.inputWrap {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  padding: 0.5rem 0;
+}
+.inputWrap > p {
+  text-transform: capitalize;
+  margin: 0 1rem;
+  width: 3rem;
+  max-width: 3rem;
+}
+.input {
+  width: 15rem;
+  height: 2rem;
+  border: none;
+  outline: none;
+  padding: 0 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #948cb1;
+}
+/* 
+.showTable {
+  transform: translateX(100%);
+} */
+
+.commonButton {
+  width: 6rem;
+  height: 3rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.resetBtn {
+  border-radius: 10px;
+  background: linear-gradient(225deg, #e6e6e6, #ffffff);
+  box-shadow: -12px 12px 28px #ababab, 12px -12px 28px #ffffff;
+  color: #999;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.submitBtn {
+  color: white;
+  background: linear-gradient(145deg, #746f86, #615e71);
+  box-shadow: 18px 18px 36px #4f4c5b, -18px -18px 36px #fff;
+  background: linear-gradient(225deg, #363232, #2d2a2a);
+  box-shadow: -13px 13px 26px #171616a1, 13px -13px 26px #4d484891;
+}
+
+.exitBtn {
+  color: rgb(118, 119, 126);
+  background: linear-gradient(145deg, #e6e1ce, #fffff5);
+  box-shadow: 4px 4px 16px #cfcbb9, -4px -4px 16px #ffffff;
+  position: absolute;
+  right: -1rem;
+  bottom: 0;
+  width: 4rem;
+  height: 2rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.subtitle {
+  padding: 0.5rem;
+  font-weight: bold;
+}
+.tableContainer {
+  cursor: default;
+  display: inline-block;
+  max-height: 14rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.tableContainer > table {
+  border-collapse: collapse;
+  border: none;
+  margin-right: 0.2rem;
+}
+
+.tableContainer > table > thead {
+  background-color: #51f;
+  color: wheat;
+}
+.tableContainer > table > thead th {
+  padding: 0.3rem;
+}
+.tableContainer > table > tbody > tr:nth-child(odd) {
+  background-color: #92a2fca9;
+}
+.tableContainer > table > tbody > tr:nth-child(even) {
+  background-color: rgb(182, 247, 229);
+}
+
+.tableContainer > table > tbody td {
+  border: solid #fff 1px;
+  padding: 0 0.2rem;
+  height: 3rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.editInput {
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.4);
+  width: 100%;
+  height: 2rem;
+  border: none;
+  padding-left: 5px;
+  border-bottom: 2px solid #51f;
+  font-size: 1rem;
+}
+
+.storeLogo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: all 0.5s ease;
+  position: absolute;
+  top: 0;
+}
+
+.storeLogo:hover {
+  transform: scale(2);
+}
+/* 图片一直存在 至少层级最低 */
+.storeLogo[data-prev] {
+  position: relative;
+  width: 150px;
+}
+
+/* 填充图片*/
+.storeLogo[data-temp] {
+  z-index: 1;
+}
+.tableContainer > table > tbody td[image-wrap] {
+  width: 150px;
+  height: 100px;
+  padding: 0;
+  position: relative;
+}
+
+.uploadInput {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+.uploadInput[status="hide"] {
+  display: none;
+}
+.uploadInput[status="show"] {
+  display: block;
+}
